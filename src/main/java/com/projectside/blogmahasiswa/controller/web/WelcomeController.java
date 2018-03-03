@@ -4,6 +4,7 @@ import com.projectside.blogmahasiswa.domain.Greeting;
 import com.projectside.blogmahasiswa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +32,9 @@ public class WelcomeController {
 
     @GetMapping("/greeting")
     public String greetingForm(Model model) {
+        System.out.println("TEST: " + userService.findAll(new PageRequest(0, 10)).getContent());
         model.addAttribute("greeting", new Greeting());
+        model.addAttribute("users", userService.findAll(new PageRequest(0, 10)).getContent());
         return "greeting";
     }
 
