@@ -32,7 +32,6 @@ public class WelcomeController {
 
     @GetMapping("/greeting")
     public String greetingForm(Model model) {
-        System.out.println("TEST: " + userService.findAll(new PageRequest(0, 10)).getContent());
         model.addAttribute("greeting", new Greeting());
         model.addAttribute("users", userService.findAll(new PageRequest(0, 10)).getContent());
         return "greeting";
