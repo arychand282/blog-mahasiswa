@@ -3,10 +3,7 @@ package com.projectside.blogmahasiswa.domain;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity // this tells hibernate to make a table out of this class
@@ -20,24 +17,19 @@ public class User {
     @Column(name = "username", length = 50)
     private String username;
 
-    @Column(name = "email", length = 50)
+    @Column(name = "email", length = 100)
     private String email;
 
     @Column(name = "password", length = 50)
     private String password;
 
-    @Column(name = "first_name", length = 50)
-    private String firstName;
-
-    @Column(name = "last_name", length = 50)
-    private String lastName;
-
-    @Column(name = "no_telpon", length = 20)
-    private String noTelpon;
+    @Column(name = "fullName", length = 200)
+    private String fullName;
 
     @Column(name = "deleteFlag")
     private boolean deleteFlag;
 
-    @Column(name = "privilege", length = 20)
-    private String privilege;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "privilege_id")
+    private Privilege privilege;
 }
