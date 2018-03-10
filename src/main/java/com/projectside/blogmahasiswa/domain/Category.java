@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @Entity
@@ -17,6 +18,7 @@ public class Category extends Updatable {
     @GenericGenerator(name = "system-uuid", strategy = "uuid2")
     private String id;
 
+    @NotEmpty
     @Column(name = "name", length = 50)
     private String name;
 

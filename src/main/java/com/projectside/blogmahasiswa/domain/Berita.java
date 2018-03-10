@@ -4,6 +4,7 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @Entity
@@ -22,6 +23,7 @@ public class Berita extends Updatable {
     @JoinColumn(name = "writer_id")
     private User writer;
 
+    @NotEmpty
     @Column(name = "title", length = 200)
     private String title;
 

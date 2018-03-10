@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 import java.time.OffsetDateTime;
+import java.util.Date;
 
 @MappedSuperclass
 public class Updatable extends Createable {
@@ -16,7 +17,7 @@ public class Updatable extends Createable {
     private String updatedBy;
 
     @Column(name = "last_updated")
-    private OffsetDateTime lastUpdated;
+    private Date lastUpdated;
 
     public int getVersion() {
         return version;
@@ -24,7 +25,7 @@ public class Updatable extends Createable {
     public String getUpdatedBy() {
         return updatedBy;
     }
-    public OffsetDateTime getLastUpdated() {
+    public Date getLastUpdated() {
         return lastUpdated;
     }
 
@@ -34,7 +35,7 @@ public class Updatable extends Createable {
     public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
-    public void setLastUpdated(OffsetDateTime lastUpdated) {
+    public void setLastUpdated(Date lastUpdated) {
         this.lastUpdated = lastUpdated;
     }
 }

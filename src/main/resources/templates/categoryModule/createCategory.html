@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Admin Blog Mahasiswa!</title>
+
+    <!-- Bootstrap -->
+    <link href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/webjars/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/webjars/nprogress/0.2.0/nprogress.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <!-- top navigation -->
+            <div th:replace="fragments/fragment-top-navigation :: top-navigation"></div>
+            <!-- /top navigation -->
+
+            <div th:replace="fragments/fragments-before-content :: top-fragments"></div>
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Category</h3>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Create new category</h2>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">
+                            <br />
+                            <form class="form-horizontal form-label-left" action="#"
+                                  th:action="@{/category/save}" th:object="${category}" method="post">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Name <span class="required">*</span></label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <input type="text" class="form-control" th:field="*{name}" placeholder="Name of category">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12">Description</span>
+                                    </label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12">
+                                        <textarea class="form-control" th:field="*{description}" rows="5" placeholder="Description of category"></textarea>
+                                    </div>
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                    <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                        <a href="#" th:href="@{/category/list}" role="button" class="btn btn-primary">
+                                            <span><i class="fa fa-arrow-left"></i></span> Back
+                                        </a>
+                                        <button type="reset" class="btn btn-default">Reset <span><i class="fa fa-repeat"></i></span></button>
+                                        <button type="submit" class="btn btn-success">Submit <span><i class="fa fa-send"></i></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+
+            <!-- footer content -->
+            <div th:replace="fragments/fragment-footer-content :: footer-content"></div>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="/webjars/fastclick/1.0.6/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="/webjars/nprogress/0.2.0/nprogress.js"></script>
+
+    <!-- Custom Theme Scripts -->
+    <script src="/js/custom.js"></script>
+</body>
+</html>

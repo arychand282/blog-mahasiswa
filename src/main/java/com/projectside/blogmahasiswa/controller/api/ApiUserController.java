@@ -22,8 +22,8 @@ import java.util.Optional;
 import static org.springframework.data.domain.PageRequest.of;
 
 @RestController
-@RequestMapping(path = "/v1/user")
-public class UserController {
+@RequestMapping(path = "/api/v1/user")
+public class ApiUserController {
 
     @Autowired
     private UserService userService;
@@ -52,7 +52,7 @@ public class UserController {
 
     @CrossOrigin
     @GetMapping(value = "/detail/{id}")
-    UserDto getDetailUser(@PathVariable String id) {
+    public UserDto getDetailUser(@PathVariable String id) {
         return userService.findById(id).map(this::toDto).orElseThrow(NotFoundException::new);
     }
 

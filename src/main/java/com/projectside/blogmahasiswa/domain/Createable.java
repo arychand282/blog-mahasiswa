@@ -5,6 +5,7 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import java.io.Serializable;
 import java.time.OffsetDateTime;
+import java.util.Date;
 
 @MappedSuperclass
 public abstract class Createable implements Serializable {
@@ -13,7 +14,7 @@ public abstract class Createable implements Serializable {
     private String createdBy;
 
     @Column(name = "date_created")
-    private OffsetDateTime dateCreated;
+    private Date dateCreated;
 
     @Column(name = "delete_flag")
     private boolean deleteFlag;
@@ -22,7 +23,7 @@ public abstract class Createable implements Serializable {
         return this.createdBy;
     }
 
-    public OffsetDateTime getDateCreated() {
+    public Date getDateCreated() {
         return dateCreated;
     }
 
@@ -34,7 +35,7 @@ public abstract class Createable implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public void setDateCreated(OffsetDateTime dateCreated) {
+    public void setDateCreated(Date dateCreated) {
         this.dateCreated = dateCreated;
     }
 

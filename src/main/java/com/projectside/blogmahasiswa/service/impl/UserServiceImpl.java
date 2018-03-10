@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Page<User> findAll(Pageable pageable) {
-        System.out.println("TEST: " + userRepository.findByDeleteFlag(false, pageable));
         return userRepository.findByDeleteFlag(false, pageable);
     }
 
