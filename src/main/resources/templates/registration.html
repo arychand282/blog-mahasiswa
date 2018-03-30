@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Gentelella Alela! | </title>
+
+    <!-- Bootstrap -->
+    <link href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/webjars/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/webjars/nprogress/0.2.0/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <!--<link href="/css/animate.css/animate.min.css" rel="stylesheet">-->
+
+    <!-- Custom Theme Style -->
+    <link href="/css/build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="login">
+    <div class="login_wrapper">
+        <div class="form">
+            <section class="login_content">
+                <form th:action="@{/registration}" th:object="${user}" method="post" role="form">
+                    <h1>Create Account</h1>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Username"
+                               required="required"
+                               th:field="*{username}" />
+                        <span class="validation-message" th:if="${#fields.hasErrors('username')}" th:errors="*{name}" ></span>
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Full Name"
+                               required="required"
+                               th:field="*{fullName}" />
+                        <span class="validation-message" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" ></span>
+                    </div>
+                    <div>
+                        <input type="email" class="form-control" placeholder="Email"
+                               required="required"
+                               th:field="*{email}" />
+                        <span class="validation-message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" ></span>
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" placeholder="Password"
+                               required="required"
+                               th:field="*{password}" />
+                        <span class="validation-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" ></span>
+                    </div>
+                    <div>
+                        <button class="btn btn-default submit" type="submit">Register User</button>
+                        <br/>
+                        <span th:utext="${successMessage}" style="color: #1ABB9C; font-weight: bold"></span>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <p class="change_link">Already a member ?
+                            <a th:href="@{/login}" class="to_register"> Log in </a>
+                        </p>
+
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div>
+                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+</body>
+</html>

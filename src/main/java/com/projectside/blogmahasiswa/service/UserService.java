@@ -9,10 +9,12 @@ import java.util.Optional;
 
 public interface UserService {
 
-    User save(User user);
+    User saveUser(User user);
 
     Page<User> findAll(Pageable pageable);
 
     Optional<User> findById(String id);
+
+    User findUserByEmail(String email);
 
 }

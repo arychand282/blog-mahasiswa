@@ -1,7 +1,6 @@
 package com.projectside.blogmahasiswa.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.projectside.blogmahasiswa.domain.Privilege;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

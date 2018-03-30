@@ -19,4 +19,6 @@ public interface UserRepository extends PagingAndSortingRepository<User, String>
 
     Optional<User> findByIdAndDeleteFlag(String id, boolean deleteFlag);
 
+    User findByEmailAndDeleteFlag(String email, boolean deleteFlag);
+
 }
